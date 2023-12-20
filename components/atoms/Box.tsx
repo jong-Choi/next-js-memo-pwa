@@ -31,7 +31,7 @@ const Box = ({
 
   return (
     <div
-      className={`border-solid border border-gray-800 ${background} w-full flex ${AlignItemsMap[alignItems]} ${JustifyContentMap[justifyContent]} ${padding} ${className}`}
+      className={`border-solid border border-gray-800 ${bg} w-full flex ${AlignItemsMap[alignItems]} ${JustifyContentMap[justifyContent]} ${padding} ${className}`}
     >
       {children}
     </div>
