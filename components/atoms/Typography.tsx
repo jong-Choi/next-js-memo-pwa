@@ -28,8 +28,10 @@ const chakraPetch = Chakra_Petch({
 const Typography = ({
   children,
   type = "content",
+  className = "",
 }: React.PropsWithChildren<{
   type?: "content" | "bottom" | "index" | "indexMonth";
+  className?: string;
 }>) => {
   let style;
 
@@ -39,11 +41,11 @@ const Typography = ({
       break;
     }
     case "indexMonth":
-      style = `text-xs ${preahvihear.className}`;
+      style = `text-sm ${preahvihear.className}`;
       break;
 
     case "index":
-      style = `text-lg ${notoSerif.className}`;
+      style = `text-xl ${notoSerif.className}`;
       break;
 
     case "bottom":
@@ -55,7 +57,7 @@ const Typography = ({
       break;
   }
 
-  return <div className={style}>{children}</div>;
+  return <div className={style + className}>{children}</div>;
 };
 
 export default Typography;

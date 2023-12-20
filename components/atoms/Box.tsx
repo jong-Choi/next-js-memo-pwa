@@ -1,18 +1,32 @@
+import { TAlignItems, TJustifyContents } from "./Stack";
+
 const Box = ({
-  background = "",
-  justifyContent = "",
-  children = null,
-  padding = "",
-  className = "",
+  background,
+  justifyContent,
+  alignItems = "items-center",
+  children,
+  padding,
+  className,
 }: React.PropsWithChildren<{
-  background?: "" | "bg-gradient-diagonal";
-  justifyContent?: "" | "justify-center";
-  padding?: "" | "p-4";
+  background?: "diagonal";
+  justifyContent?: TJustifyContents;
+  alignItems?: TAlignItems;
+  padding?: "p-4";
   className?: string;
 }>) => {
+  let bg;
+  switch (background) {
+    case "diagonal":
+      bg = "bg-gradient-diagonal";
+      break;
+    default:
+      bg = "";
+      break;
+  }
+
   return (
     <div
-      className={`border-solid border border-gray-800 ${background} w-full h-full flex align-middle ${justifyContent} ${padding} ${className}`}
+      className={`border-solid border border-gray-800 ${background} w-full flex ${alignItems} ${justifyContent} ${padding} ${className}`}
     >
       {children}
     </div>
