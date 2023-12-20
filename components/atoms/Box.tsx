@@ -1,9 +1,14 @@
-import { TAlignItems, TJustifyContents } from "./Stack";
+import {
+  AlignItemsMap,
+  JustifyContentMap,
+  TAlignItems,
+  TJustifyContents,
+} from "./Stack";
 
 const Box = ({
   background,
-  justifyContent,
-  alignItems = "items-center",
+  justifyContent = "start",
+  alignItems = "stretch",
   children,
   padding,
   className,
@@ -26,7 +31,7 @@ const Box = ({
 
   return (
     <div
-      className={`border-solid border border-gray-800 ${background} w-full flex ${alignItems} ${justifyContent} ${padding} ${className}`}
+      className={`border-solid border border-gray-800 ${background} w-full flex ${AlignItemsMap[alignItems]} ${JustifyContentMap[justifyContent]} ${padding} ${className}`}
     >
       {children}
     </div>

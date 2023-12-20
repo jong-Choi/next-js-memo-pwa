@@ -1,20 +1,3 @@
-export type TJustifyContents =
-  | "justify-normal"
-  | "justify-start"
-  | "justify-end"
-  | "justify-center"
-  | "justify-between"
-  | "justify-around"
-  | "justify-evenly"
-  | "justify-stretch";
-
-export type TAlignItems =
-  | "items-start"
-  | "items-end"
-  | "items-center"
-  | "items-beasline"
-  | "items-stretch";
-
 interface StackProps {
   flexDirection?: "row" | "col";
   justifyContent?: TJustifyContents;
@@ -25,15 +8,17 @@ interface StackProps {
 
 const Stack = ({
   flexDirection = "col",
-  justifyContent = "justify-normal",
-  alignItems = "items-start",
+  justifyContent = "start",
+  alignItems = "stretch",
   className = "",
   gap = 0,
   children,
 }: React.PropsWithChildren<StackProps>) => {
   return (
     <div
-      className={`flex flex-${flexDirection} gap-${~~gap} ${justifyContent} ${alignItems}  w-full h-full ${className}`}
+      className={`flex flex-${flexDirection} gap-${~~gap} ${
+        JustifyContentMap[justifyContent]
+      } ${AlignItemsMap[alignItems]}  w-full h-full ${className}`}
     >
       {children}
     </div>
@@ -41,3 +26,35 @@ const Stack = ({
 };
 
 export default Stack;
+
+export type TJustifyContents =
+  | "normal"
+  | "start"
+  | "end"
+  | "center"
+  | "between"
+  | "around"
+  | "evenly"
+  | "stretch";
+
+export const JustifyContentMap: Record<TJustifyContents, string> = {
+  normal: "justify-normal",
+  start: "justify-start",
+  end: "justify-end",
+  center: "justify-center",
+  between: "justify-between",
+  around: "justify-around",
+  evenly: "justify-evenly",
+  stretch: "justify-stretch",
+};
+
+export type TAlignItems = "start" | "end" | "center" | "baseline" | "stretch";
+
+// AlignItemsMap을 수정했습니다.
+export const AlignItemsMap: Record<TAlignItems, string> = {
+  start: "items-start",
+  end: "items-end",
+  center: "items-center",
+  baseline: "items-baseline",
+  stretch: "items-stretch",
+};
