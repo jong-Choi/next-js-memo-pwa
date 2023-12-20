@@ -54,3 +54,4 @@ next-env.d.ts
 !.yarn/versions
 .pnp.*
 
+.yarn/releases/yarn-4.0.2.cjs

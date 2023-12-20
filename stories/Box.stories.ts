@@ -14,23 +14,3 @@ export const Default: Story = {
     children: "박스 Box 0123",
   },
 };
-
-// export const Secondary: Story = {
-//   args: {
-//     label: '박스 Box 0123',
-//   },
-// };
-
-// export const Large: Story = {
-//   args: {
-//     size: 'large',
-//     label: '박스 Box 0123',
-//   },
-// };
-
-// export const Small: Story = {
-//   args: {
-//     size: 'small',
-//     label: '박스 Box 0123',
-//   },
-// };
