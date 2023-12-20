@@ -1,9 +1,4 @@
-import {
-  Preahvihear,
-  Noto_Serif,
-  Share_Tech_Mono,
-  Chakra_Petch,
-} from "next/font/google";
+import { Preahvihear, Noto_Serif, Share_Tech_Mono } from "next/font/google";
 
 const preahvihear = Preahvihear({
   weight: "400",
@@ -16,11 +11,6 @@ const notoSerif = Noto_Serif({
 });
 
 const shareTechMono = Share_Tech_Mono({
-  weight: "400",
-  subsets: ["latin"],
-});
-
-const chakraPetch = Chakra_Petch({
   weight: "400",
   subsets: ["latin"],
 });

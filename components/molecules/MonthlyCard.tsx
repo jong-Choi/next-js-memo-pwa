@@ -6,11 +6,11 @@ const MonthlyCard = () => {
     <Stack flexDirection="row" className="w-full h-[90px]">
       <div className="w-[60px]">
         <Stack>
-          <Box justifyContent="justify-center" className="border-b-0 h-[32px]">
+          <Box justifyContent="center" className="border-b-0 h-[32px]">
             <Typography type="indexMonth">SUN</Typography>
           </Box>
           <Box className="h-[58px]">
-            <Stack alignItems="items-center" justifyContent="justify-center">
+            <Stack alignItems="center" justifyContent="center">
               <Typography type="index">12</Typography>
             </Stack>
           </Box>
