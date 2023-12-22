@@ -47,7 +47,7 @@ const Typography = ({
       break;
   }
 
-  return <div className={style + className}>{children}</div>;
+  return <div className={style + " " + className}>{children}</div>;
 };
 
 export default Typography;

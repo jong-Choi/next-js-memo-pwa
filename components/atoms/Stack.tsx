@@ -2,7 +2,6 @@ interface StackProps {
   flexDirection?: "row" | "col";
   justifyContent?: TJustifyContents;
   alignItems?: TAlignItems;
-  gap?: number;
   className?: string;
 }
 
@@ -11,12 +10,11 @@ const Stack = ({
   justifyContent = "start",
   alignItems = "stretch",
   className = "",
-  gap = 0,
   children,
 }: React.PropsWithChildren<StackProps>) => {
   return (
     <div
-      className={`flex flex-${flexDirection} gap-${~~gap} ${
+      className={`flex ${flexDirection === "row" ? "flex-row" : "flex-col"} ${
         JustifyContentMap[justifyContent]
       } ${AlignItemsMap[alignItems]}  w-full h-full ${className}`}
     >
