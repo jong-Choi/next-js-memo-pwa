@@ -2,6 +2,7 @@ import Box from "../atoms/Box";
 import Icons from "../atoms/Icons";
 import Stack from "../atoms/Stack";
 import Typography from "../atoms/Typography";
+import BottomCreateButton from "../molecules/BottomCreateButton";
 import BottomMonthIndex from "../molecules/BottomMonthIndex";
 import BottomToggleButton from "../molecules/BottomToggleButton";
 
@@ -28,9 +29,7 @@ const BottomBar = () => {
         <Typography type="indexMonth">|</Typography>
       </Stack>
 
-      <Stack alignItems="center" justifyContent="between" className="">
-        <Icons iconName="plus" className="_bottom-container-center " />
-      </Stack>
+      <BottomCreateButton />
       <Stack
         flexDirection="row"
         justifyContent="between"

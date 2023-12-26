@@ -6,12 +6,12 @@ export async function PUT(request: Request) {
     const memoId = request.url.split("/").at(-2);
     const data = await request.json();
     const body = data.body as { content: string };
-
-    const result = await sql`
-    UPDATE memos
-    SET content = ${body.content}
-    WHERE id = ${memoId};
-    `.then((res) => res.rows);
+    const result = { body };
+    // const result = await sql`
+    // UPDATE memos
+    // SET content = ${body.content}
+    // WHERE id = ${memoId};
+    // `.then((res) => res.rows);
 
     return NextResponse.json({ result }, { status: 200 });
   } catch (error) {
