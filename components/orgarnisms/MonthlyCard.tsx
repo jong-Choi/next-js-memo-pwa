@@ -18,10 +18,15 @@ const MonthlyCard = ({
       <div className="_card-left w-[50px]">
         <Stack className="_card-index">
           <DayIndex className="border-b-0 h-[21px]">{day}</DayIndex>
-          <DateIndex className="h-[39px] flex-shrink-0">{days}</DateIndex>
+          <DateIndex
+            className={
+              "h-[39px]" + " " + `${day === "SUN" ? "text-red-800" : ""}`
+            }
+          >
+            {days}
+          </DateIndex>
         </Stack>
       </div>
-
       <MonthlyContents className="h-[60px]">{contents}</MonthlyContents>
     </Stack>
   );
