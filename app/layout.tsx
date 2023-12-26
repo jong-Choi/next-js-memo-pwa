@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Noto_Sans_KR } from "next/font/google";
 import "./globals.css";
+import BottomBar from "@/components/orgarnisms/BottomBar";
 
 const notoSansKr = Noto_Sans_KR({
   weight: ["400", "500", "700", "900"],
@@ -19,7 +20,12 @@ export default function RootLayout({
 }) {
   return (
     <html lang="ko">
-      <body className={notoSansKr.className}>{children}</body>
+      <body className={notoSansKr.className}>
+        {children}
+        <div className="fixed bottom-0 w-full px-6">
+          <BottomBar />
+        </div>
+      </body>
     </html>
   );
 }

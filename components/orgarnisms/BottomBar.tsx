@@ -5,10 +5,10 @@ import Typography from "../atoms/Typography";
 import BottomMonthIndex from "../molecules/BottomMonthIndex";
 import BottomToggleButton from "../molecules/BottomToggleButton";
 
-const BottonBar = () => {
+const BottomBar = () => {
   return (
     <Stack
-      className="_bottom-container p-6 pb-12"
+      className="_bottom-container p-4 lg:p-6 pb-8 lg:pb-12"
       flexDirection="row"
       alignItems="center"
       justifyContent="between"
@@ -27,8 +27,9 @@ const BottonBar = () => {
         <Icons iconName="minus" rotate="rotate-90" strokeWidth={1} />
       </Stack>
 
-      <Icons iconName="plus" className="_bottom-container-center " />
-
+      <Stack alignItems="center" justifyContent="center">
+        <Icons iconName="plus" className="_bottom-container-center " />
+      </Stack>
       <Stack
         flexDirection="row"
         justifyContent="between"
@@ -37,10 +38,13 @@ const BottonBar = () => {
       >
         <Icons iconName="minus" rotate="rotate-90" strokeWidth={1} />
         <BottomToggleButton />
-        <Box background="diagonal" className="w-10 h-6" />
+        <Box
+          background="diagonal"
+          className="h-4 lg:h-6 w-[27px] lg:w-[40px]"
+        />
       </Stack>
     </Stack>
   );
 };
 
-export default BottonBar;
+export default BottomBar;

@@ -10,13 +10,13 @@ const Box = ({
   justifyContent = "start",
   alignItems = "stretch",
   children,
-  padding,
+  padding = "p-3 lg:p-4",
   className,
 }: React.PropsWithChildren<{
   background?: "diagonal";
   justifyContent?: TJustifyContents;
   alignItems?: TAlignItems;
-  padding?: "p-4";
+  padding?: string;
   className?: string;
 }>) => {
   let bg;

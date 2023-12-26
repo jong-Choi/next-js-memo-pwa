@@ -5,7 +5,7 @@ const MonthlyContents = ({
   className,
 }: React.PropsWithChildren<{ className: string }>) => {
   return (
-    <Box className={className} padding="p-4" alignItems="center">
+    <Box className={className} alignItems="center">
       <div className="line-clamp-2">{children}</div>
     </Box>
   );

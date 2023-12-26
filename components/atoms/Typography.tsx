@@ -27,19 +27,19 @@ const Typography = ({
 
   switch (type) {
     case "content": {
-      style = "";
+      style = "text-[12xp] lg:text-[16xp]";
       break;
     }
     case "indexMonth":
-      style = `text-sm ${preahvihear.className}`;
+      style = `text-[8xp] lg:text-sm ${preahvihear.className}`;
       break;
 
     case "index":
-      style = `text-xl ${notoSerif.className}`;
+      style = `text-[12xp] lg:text-xl ${notoSerif.className}`;
       break;
 
     case "bottom":
-      style = `text-xl -tracking-widest ${shareTechMono.className}`;
+      style = `text-[16xp] lg:text-xl -tracking-widest ${shareTechMono.className}`;
       break;
 
     default:
