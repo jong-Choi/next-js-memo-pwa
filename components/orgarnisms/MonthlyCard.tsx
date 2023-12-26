@@ -1,6 +1,4 @@
-import Box from "../atoms/Box";
 import Stack from "../atoms/Stack";
-import Typography from "../atoms/Typography";
 import DateIndex from "../molecules/DateIndex";
 import DayIndex from "../molecules/DayIndex";
 import MonthlyContents from "../molecules/MonthlyContents";
@@ -20,14 +18,16 @@ const MonthlyCard = ({
           <DayIndex className="border-b-0 h-[21px]">{day}</DayIndex>
           <DateIndex
             className={
-              "h-[39px]" + " " + `${day === "SUN" ? "text-red-800" : ""}`
+              "h-[39px]" + " " + `${day === "SUN" ? "text-red-700" : ""}`
             }
           >
             {days}
           </DateIndex>
         </Stack>
       </div>
-      <MonthlyContents className="h-[60px]">{contents}</MonthlyContents>
+      <MonthlyContents className="h-[60px] whitespace-pre-wrap">
+        {contents}
+      </MonthlyContents>
     </Stack>
   );
 };

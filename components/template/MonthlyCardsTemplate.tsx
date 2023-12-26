@@ -1,7 +1,7 @@
 import Stack from "../atoms/Stack";
 import MonthlyCard from "../orgarnisms/MonthlyCard";
 
-const MonthlyTemplate = () => {
+const MonthlyCardsTemplate = () => {
   const memos = [
     {
       id: 1,
@@ -26,7 +26,8 @@ const MonthlyTemplate = () => {
     {
       id: 5,
       date: "2023-11-16",
-      content: "안녕하세요",
+      content: `안녕하
+세요`,
     },
     {
       id: 6,
@@ -103,14 +104,8 @@ const MonthlyTemplate = () => {
           </div>
         );
       })}
-      <MonthlyCard
-        key={"memo"}
-        day={"MON"}
-        days={12}
-        contents={"도로 가운데 나무들은 오늘도 매연을 꾸역꾸역 집어 삼킨다."}
-      />
     </Stack>
   );
 };
 
-export default MonthlyTemplate;
+export default MonthlyCardsTemplate;
