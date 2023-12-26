@@ -21,8 +21,8 @@ export default function RootLayout({
   return (
     <html lang="ko">
       <body className={notoSansKr.className}>
-        <div className="w-full px-[12px]">{children}</div>
-        <div className="fixed bottom-0 w-full">
+        <div className="w-full px-[12px] bg-stone-100">{children}</div>
+        <div className="fixed bottom-0 w-full bg-stone-100 z-50">
           <BottomBar />
         </div>
       </body>

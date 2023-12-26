@@ -16,7 +16,7 @@ const Stack = ({
     <div
       className={`flex ${flexDirection === "row" ? "flex-row" : "flex-col"} ${
         JustifyContentMap[justifyContent]
-      } ${AlignItemsMap[alignItems]}  w-full h-full ${className}`}
+      } ${AlignItemsMap[alignItems]} ${className}`}
     >
       {children}
     </div>

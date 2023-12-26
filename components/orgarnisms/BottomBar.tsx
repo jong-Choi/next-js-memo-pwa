@@ -17,7 +17,7 @@ const BottomBar = () => {
         flexDirection="row"
         justifyContent="between"
         alignItems="center"
-        className="_bottom-container-left w-[136px] flex-shrink-0"
+        className="_bottom-container-left w-[136px]"
       >
         <div>
           <BottomMonthIndex />
@@ -27,6 +27,7 @@ const BottomBar = () => {
         <Typography type="bottom">2015</Typography>
         <Typography type="indexMonth">|</Typography>
       </Stack>
+
       <Stack alignItems="center" justifyContent="between" className="">
         <Icons iconName="plus" className="_bottom-container-center " />
       </Stack>
