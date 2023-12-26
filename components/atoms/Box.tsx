@@ -10,7 +10,7 @@ const Box = ({
   justifyContent = "start",
   alignItems = "stretch",
   children,
-  padding = "p-3 lg:p-4",
+  padding = "",
   className,
 }: React.PropsWithChildren<{
   background?: "diagonal";

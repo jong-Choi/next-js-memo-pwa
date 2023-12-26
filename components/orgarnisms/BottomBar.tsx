@@ -8,7 +8,7 @@ import BottomToggleButton from "../molecules/BottomToggleButton";
 const BottomBar = () => {
   return (
     <Stack
-      className="_bottom-container p-4 lg:p-6 pb-8 lg:pb-12"
+      className="_bottom-container p-[16px] pb-[30px]"
       flexDirection="row"
       alignItems="center"
       justifyContent="between"
@@ -17,31 +17,30 @@ const BottomBar = () => {
         flexDirection="row"
         justifyContent="between"
         alignItems="center"
-        className="_bottom-container-left w-2/5"
+        className="_bottom-container-left w-[136px] flex-shrink-0"
       >
         <div>
           <BottomMonthIndex />
         </div>
-        <Icons iconName="minus" rotate="rotate-90" strokeWidth={1} />
-        <Typography type="bottom">2015</Typography>
-        <Icons iconName="minus" rotate="rotate-90" strokeWidth={1} />
-      </Stack>
 
-      <Stack alignItems="center" justifyContent="center">
+        <Typography type="indexMonth">|</Typography>
+        <Typography type="bottom">2015</Typography>
+        <Typography type="indexMonth">|</Typography>
+      </Stack>
+      <Stack alignItems="center" justifyContent="between" className="">
         <Icons iconName="plus" className="_bottom-container-center " />
       </Stack>
       <Stack
         flexDirection="row"
         justifyContent="between"
         alignItems="center"
-        className="_bottom-container-right w-2/5"
+        className="_bottom-container-right w-[136px] flex-shrink-0"
       >
-        <Icons iconName="minus" rotate="rotate-90" strokeWidth={1} />
+        <Typography type="indexMonth">|</Typography>
         <BottomToggleButton />
-        <Box
-          background="diagonal"
-          className="h-4 lg:h-6 w-[27px] lg:w-[40px]"
-        />
+        <div className="h-[15px] w-[26px]">
+          <Box background="diagonal" className="h-[15px]" />
+        </div>
       </Stack>
     </Stack>
   );

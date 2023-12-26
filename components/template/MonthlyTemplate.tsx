@@ -36,7 +36,7 @@ const MonthlyTemplate = () => {
     memos,
   };
   return (
-    <Stack className="gap-3 lg:gap-5">
+    <Stack className="gap-[10px]">
       {data.memos.map((memo) => {
         const { date } = memo!;
         const dayOfWeek = new Date(date).toLocaleDateString("en-US", {

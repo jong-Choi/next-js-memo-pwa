@@ -8,9 +8,9 @@ const DateIndex = ({
 }: React.PropsWithChildren<{ className?: string }>) => {
   return (
     <Box className={className}>
-      <Stack alignItems="center" justifyContent="center">
-        <Typography type="index">{children}</Typography>
-      </Stack>
+      <Typography type="index" className="m-auto">
+        {children}
+      </Typography>
     </Box>
   );
 };
