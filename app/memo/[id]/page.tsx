@@ -14,7 +14,9 @@ const Memo = async ({ params }: { params: { id: string } }) => {
   return (
     <>
       <Link href={`/memo/${params.id}/update`}>
-        <div className="w-full h-full">{result.content}</div>
+        <div className="w-full h-full break-words whitespace-pre-wrap">
+          {result.content}
+        </div>
       </Link>
       <Link href={`/monthly/${MODE}/${year}/${month}`}>
         <div className="flex fixed bottom-0 w-full">

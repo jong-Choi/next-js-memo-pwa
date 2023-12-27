@@ -6,7 +6,7 @@ export async function GET(request: Request) {
     await sql`
     CREATE TABLE IF NOT EXISTS memos (
       id SERIAL PRIMARY KEY,
-      content VARCHAR(255) NOT NULL,
+      content TEXT NOT NULL,
       "createdAt" TIMESTAMP WITH TIME ZONE DEFAULT CURRENT_TIMESTAMP
     );
     `;

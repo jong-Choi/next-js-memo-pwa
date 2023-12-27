@@ -27,7 +27,9 @@ const UpdateTextarea = ({ content, id }: { content: string; id: string }) => {
             setValue(e.target.value);
             auto_grow(e);
           }}
-          className="bg-transparent outline-none border-none resize-none overflow-hidden w-full min-h-14 max-h-full"
+          className="bg-transparent outline-none 
+          border-none resize-none overflow-hidden 
+          w-full min-h-14 max-h-full break-words whitespace-pre-wrap"
         />
       </div>
       <Stack

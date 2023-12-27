@@ -25,7 +25,7 @@ const MonthlyCard = ({
           </DateIndex>
         </Stack>
       </div>
-      <MonthlyContents className="h-[60px] whitespace-pre-wrap">
+      <MonthlyContents className="h-[60px] whitespace-pre-wrap ">
         {contents}
       </MonthlyContents>
     </Stack>
