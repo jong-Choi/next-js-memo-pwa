@@ -7,10 +7,10 @@ const BottomCreateButton = () => {
   const onClick = async () => {
     const res = await fetch("http://localhost:3000/api/memo/create", {
       method: "POST",
-      body: JSON.stringify({ content: "안녕하세요" }),
+      body: JSON.stringify({ content: "" }),
     });
     const data = await res.json();
-    console.log(data);
+    const { id } = data;
   };
   return (
     <div onClick={onClick}>
