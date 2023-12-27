@@ -5,17 +5,24 @@ export async function POST(request: Request) {
   try {
     const data = await request.json();
 
+    //     const query = await sql`
+    //     INSERT INTO memos (content, "createdAt")
+    //     SELECT
+    //         ${String(data["content"])},
+    //         CURRENT_TIMESTAMP
+    //     WHERE NOT EXISTS (
+    //         SELECT 1
+    //         FROM memos
+    //         WHERE DATE("createdAt") = CURRENT_DATE
+    //     )
+    //     RETURNING id;
+    // `;
     const query = await sql`
-    INSERT INTO memos (content, "createdAt")
-    SELECT
-        ${String(data["content"])},
-        CURRENT_TIMESTAMP
-    WHERE NOT EXISTS (
-        SELECT 1
-        FROM memos
-        WHERE DATE("createdAt") = CURRENT_DATE
-    )
-    RETURNING id;
+INSERT INTO memos (content, "createdAt")
+SELECT
+    ${String(data["content"])},
+    CURRENT_TIMESTAMP
+RETURNING id;
 `;
     // {
     //   command: 'INSERT',
