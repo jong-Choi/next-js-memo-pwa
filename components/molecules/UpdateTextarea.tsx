@@ -1,11 +1,21 @@
 "use client";
-import { FormEvent, useRef, useState } from "react";
+import { FormEvent, useEffect, useRef, useState } from "react";
 import Stack from "../atoms/Stack";
 import { Clock } from "react-feather";
+import { useRouter } from "next/navigation";
+import { UpdateMemo } from "@/app/actions";
 
-const UpdateTextarea = ({ content }: { content: string }) => {
+const UpdateTextarea = ({ content, id }: { content: string; id: string }) => {
   const [value, setValue] = useState(content);
   const textRef = useRef<HTMLTextAreaElement>(null);
+  const router = useRouter();
+
+  useEffect(() => {
+    if (textRef.current) {
+      textRef.current.selectionStart = content.length;
+      textRef.current.focus();
+    }
+  }, [textRef, content]);
 
   return (
     <>
@@ -15,11 +25,9 @@ const UpdateTextarea = ({ content }: { content: string }) => {
           value={value}
           onChange={(e) => {
             setValue(e.target.value);
-            console.log(e.target.selectionStart);
+            auto_grow(e);
           }}
           className="bg-transparent outline-none border-none resize-none overflow-hidden w-full min-h-14 max-h-full"
-          onInput={(e) => auto_grow(e)}
-          autoFocus
         />
       </div>
       <Stack
@@ -29,16 +37,44 @@ const UpdateTextarea = ({ content }: { content: string }) => {
       >
         <Clock
           onClick={() => {
-            const selectionStart = textRef.current?.selectionStart;
+            if (!textRef.current) return;
+            const selectionStart = textRef.current.selectionStart;
+            const currentTime = getCurrentTime();
+            const selectionOffset = currentTime.length + 1;
             setValue(
               value.slice(0, selectionStart) +
-                getCurrentTime() +
+                currentTime +
                 " " +
                 value.slice(selectionStart)
             );
+            setTimeout(() => {
+              if (textRef.current) {
+                textRef.current.setSelectionRange(
+                  selectionStart + selectionOffset,
+                  selectionStart + selectionOffset
+                );
+                textRef.current.focus();
+              }
+            });
           }}
         />
-        <div>|DONE|</div>
+        <div
+          onClick={async () => {
+            const response = await fetch(`/api/memo/${id}/update`, {
+              method: "PUT",
+              body: JSON.stringify({ content: value }),
+            });
+            if (response.status === 200) {
+              UpdateMemo(id);
+              await fetch(`http://localhost:3000/api/memo/${id}`, {
+                next: { tags: [`memo${id}`] },
+              });
+              router.push(`/memo/${id}`);
+            }
+          }}
+        >
+          |DONE|
+        </div>
       </Stack>
     </>
   );
