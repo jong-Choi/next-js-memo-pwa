@@ -1,9 +1,12 @@
 import { sql } from "@vercel/postgres";
 import { NextResponse } from "next/server";
 
-export async function PUT(request: Request) {
+export async function PUT(
+  request: Request,
+  context: { params: { id: string } }
+) {
   try {
-    const memoId = request.url.split("/").at(-2);
+    const memoId = context.params.id;
     const data = await request.json();
 
     const result = await sql`

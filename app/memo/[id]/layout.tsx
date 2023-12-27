@@ -19,14 +19,17 @@ const MemoLayout = async ({
 
   return (
     <div className="w-screen h-screen">
-      <Box background="diagonal" className="p-2 border-none w-full h-full">
-        <Stack className=" bg-stone-100 w-full h-full">
+      <Box
+        background="black-diagonal"
+        className="p-2 border-none w-full h-full"
+      >
+        <Stack className=" bg-stone-100 w-full h-full border-gray-900 border-solid border-2">
           <div className="border-solid border-b-2 border-gray-900 w-fit py-1 mx-auto mb-1">
             <Typography type="bottom" className="text-gray-900">
               {title}
             </Typography>
           </div>
-          <div className="w-full h-full overflow-y-auto p-3">{children}</div>
+          <div className="w-full h-full overflow-y-auto p-3 ">{children}</div>
         </Stack>
       </Box>
     </div>

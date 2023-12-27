@@ -20,7 +20,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="ko">
-      <body className={notoSansKr.className}>{children}</body>
+      <body className={notoSansKr.className + " bg-stone-100"}>{children}</body>
     </html>
   );
 }

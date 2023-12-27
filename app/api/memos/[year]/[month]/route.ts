@@ -1,7 +1,10 @@
 import { sql } from "@vercel/postgres";
 import { NextResponse } from "next/server";
 
-export async function GET(request: Request) {
+export async function GET(
+  request: Request,
+  context: { params: { year: string; month: string } }
+) {
   try {
     await sql`
     CREATE TABLE IF NOT EXISTS memos (
@@ -10,9 +13,9 @@ export async function GET(request: Request) {
       "createdAt" TIMESTAMP WITH TIME ZONE DEFAULT CURRENT_TIMESTAMP
     );
     `;
-
-    const year = request.url.split("/").at(-2);
-    const month = request.url.split("/").at(-1);
+    const {
+      params: { year, month },
+    } = context;
     const query = await sql`
             SELECT *
             FROM memos

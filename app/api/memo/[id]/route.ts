@@ -1,9 +1,12 @@
 import { sql } from "@vercel/postgres";
 import { NextResponse } from "next/server";
 
-export async function GET(request: Request) {
+export async function GET(
+  request: Request,
+  context: { params: { id: string } }
+) {
   try {
-    const id = request.url.split("/").at(-1);
+    const id = context.params.id;
     const query = await sql`
             SELECT *
             FROM memos

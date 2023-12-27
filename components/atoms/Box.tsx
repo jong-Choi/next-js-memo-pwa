@@ -13,7 +13,7 @@ const Box = ({
   padding = "",
   className,
 }: React.PropsWithChildren<{
-  background?: "diagonal";
+  background?: "diagonal" | "black-diagonal";
   justifyContent?: TJustifyContents;
   alignItems?: TAlignItems;
   padding?: string;
@@ -23,6 +23,9 @@ const Box = ({
   switch (background) {
     case "diagonal":
       bg = "bg-gradient-diagonal";
+      break;
+    case "black-diagonal":
+      bg = "bg-gradient-diagonal-black";
       break;
     default:
       bg = "";
