@@ -39,7 +39,7 @@ const Typography = ({
       break;
 
     case "bottom":
-      style = `text-[20px] -tracking-[.2em] ${shareTechMono.className}`;
+      style = `text-[20px] -tracking-[.1em] ${shareTechMono.className}`;
       break;
 
     default:
