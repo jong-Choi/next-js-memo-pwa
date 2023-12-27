@@ -29,7 +29,7 @@ const UpdateTextarea = ({ content, id }: { content: string; id: string }) => {
           }}
           className="bg-transparent outline-none 
           border-none resize-none overflow-hidden 
-          w-full min-h-14 max-h-full break-words whitespace-pre-wrap"
+          w-full min-h-14 max-h-full break-all whitespace-pre-wrap"
         />
       </div>
       <Stack

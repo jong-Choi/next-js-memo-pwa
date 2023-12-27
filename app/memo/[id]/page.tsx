@@ -14,7 +14,7 @@ const Memo = async ({ params }: { params: { id: string } }) => {
   return (
     <>
       <Link href={`/memo/${params.id}/update`}>
-        <div className="w-full h-full break-words whitespace-pre-wrap">
+        <div className="w-full h-full break-all whitespace-pre-wrap">
           {result.content}
         </div>
       </Link>
