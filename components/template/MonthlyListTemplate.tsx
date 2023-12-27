@@ -1,3 +1,4 @@
+import Link from "next/link";
 import Stack from "../atoms/Stack";
 import Typography from "../atoms/Typography";
 
@@ -22,23 +23,25 @@ const MonthlyListTemplate = ({
 
         return (
           <div key={memo.id}>
-            <Typography
-              type="content"
-              className="text-sm whitespace-pre-wrap inline"
-            >
-              <Typography type="index" className="text-sm inline">
-                {days}
-              </Typography>{" "}
+            <Link href={`/memo/${memo.id}`}>
               <Typography
-                type="index"
-                className={`text-sm inline ${
-                  dayOfWeek === "Sunday" ? "text-red-700" : ""
-                }`}
+                type="content"
+                className="text-sm whitespace-pre-wrap inline"
               >
-                {dayOfWeek}
-              </Typography>{" "}
-              / {memo.content}
-            </Typography>
+                <Typography type="index" className="text-sm inline">
+                  {days}
+                </Typography>{" "}
+                <Typography
+                  type="index"
+                  className={`text-sm inline ${
+                    dayOfWeek === "Sunday" ? "text-red-700" : ""
+                  }`}
+                >
+                  {dayOfWeek}
+                </Typography>{" "}
+                / {memo.content}
+              </Typography>
+            </Link>
           </div>
         );
       })}

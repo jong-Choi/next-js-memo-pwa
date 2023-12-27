@@ -1,3 +1,4 @@
+import Link from "next/link";
 import Stack from "../atoms/Stack";
 import MonthlyCard from "../orgarnisms/MonthlyCard";
 
@@ -48,7 +49,13 @@ const MonthlyCardsTemplate = ({
         }
         return (
           <div key={"memo" + memo!.id}>
-            <MonthlyCard day={dayOfWeek} days={days} contents={memo!.content} />
+            <Link href={`/memo/${memo!.id}`}>
+              <MonthlyCard
+                day={dayOfWeek}
+                days={days}
+                contents={memo!.content}
+              />
+            </Link>
             {dotArray.length ? (
               <Stack
                 className="mb-[-10px]"
