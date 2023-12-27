@@ -1,69 +1,35 @@
 import Stack from "../atoms/Stack";
 import MonthlyCard from "../orgarnisms/MonthlyCard";
 
-const MonthlyCardsTemplate = () => {
-  const memos = [
-    {
-      id: 1,
-      date: "2023-11-12",
-      content: "안녕하세요",
-    },
-    {
-      id: 3,
-      date: "2023-11-20",
-      content: "안녕하세요",
-    },
-    {
-      id: 2,
-      date: "2023-11-13",
-      content: "안녕하세요",
-    },
-    {
-      id: 4,
-      date: "2023-11-14",
-      content: "안녕하세요",
-    },
-    {
-      id: 5,
-      date: "2023-11-16",
-      content: `안녕하
-세요`,
-    },
-    {
-      id: 6,
-      date: "2023-11-16",
-      content: "안녕하세요",
-    },
-  ];
-  const data = {
-    date: new Date().toISOString(),
-    memos,
-  };
-
-  data.memos = data.memos.sort((a, b) => {
-    const dateA = Number(new Date(a.date));
-    const dateB = Number(new Date(b.date));
+const MonthlyCardsTemplate = ({
+  memos,
+}: {
+  memos: Array<{ id: number; content: string; createdAt: string }>;
+}) => {
+  memos = memos.sort((a, b) => {
+    const dateA = Number(new Date(a.createdAt));
+    const dateB = Number(new Date(b.createdAt));
     return dateA - dateB;
   });
   return (
     <Stack className="gap-[10px]">
-      {data.memos.map((memo, index) => {
-        const { date } = memo!;
-        const dayOfWeek = new Date(date)
+      {memos.map((memo, index) => {
+        const { createdAt } = memo!;
+        const dayOfWeek = new Date(createdAt)
           .toLocaleDateString("en-US", {
             weekday: "short",
           })
           .toLocaleUpperCase();
-        const days = Number(date.split("T")[0].split("-")[2]);
+        const days = Number(createdAt.split("T")[0].split("-")[2]);
 
-        const nextMemo = data.memos[index + 1];
+        const nextMemo = memos[index + 1];
         const dotArray = [];
         if (nextMemo) {
-          const nextDate = new Date(nextMemo.date.split("T")[0]);
+          const nextDate = new Date(nextMemo.createdAt.split("T")[0]);
           let gap = 0;
           while (true) {
             gap++;
-            const crrDate = new Date(memo.date.split("T")[0]);
+            const crrDate = new Date(memo.createdAt.split("T")[0]);
             crrDate.setDate(crrDate.getDate() + gap);
             if (crrDate.getTime() >= nextDate.getTime()) {
               break;
@@ -91,7 +57,7 @@ const MonthlyCardsTemplate = () => {
               >
                 {dotArray.map((e, i) => (
                   <div
-                    key={"memodots" + memo!.id + "date" + memo.date + i}
+                    key={"memodots" + memo!.id + "date" + memo.createdAt + i}
                     className="my-[15px]"
                   >
                     {e}

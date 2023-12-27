@@ -11,12 +11,15 @@ export async function GET(request: Request) {
     );
     `;
 
+    const year = request.url.split("/").at(-2);
     const month = request.url.split("/").at(-1);
-    const results = await sql`
+    const query = await sql`
             SELECT *
-            FROM users
-            WHERE EXTRACT(MONTH FROM "createdAt") = ${month}
-          `.then((res) => res.rows);
+            FROM memos
+            WHERE EXTRACT(YEAR FROM "createdAt") = ${year}
+            AND EXTRACT(MONTH FROM "createdAt") = ${month};
+          `;
+    const results = query.rows;
 
     return NextResponse.json({ results }, { status: 200 });
   } catch (error) {

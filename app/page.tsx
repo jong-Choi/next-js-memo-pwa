@@ -1,11 +1,16 @@
-import MonthlyCardsTemplate from "@/components/template/MonthlyCardsTemplate";
+"use client";
+
+import { useRouter } from "next/navigation";
+import { useEffect } from "react";
 
 export default function Home() {
-  return (
-    // <main className="flex min-h-screen flex-col items-center justify-between p-24">
-    <div className="">
-      <MonthlyCardsTemplate />
-    </div>
-    // </main>
-  );
+  const router = useRouter();
+  useEffect(() => {
+    const date = new Date();
+    const mode = "cards";
+    router.push(
+      `/monthly/${mode}/${date.getFullYear()}/${date.getMonth() + 1}`
+    );
+  }, [router]);
+  return null;
 }
